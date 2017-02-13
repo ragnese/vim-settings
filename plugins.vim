@@ -1,3 +1,10 @@
+" Automatically install vim-plug if it's not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
     " Unite does all kinds of listing/fuzzy searches
     " NOTE: Unite Depends on vimproc for async stuff
@@ -9,6 +16,8 @@ call plug#begin('~/.vim/plugged')
     " Snippets
     Plug 'sirver/UltiSnips' | let ultisnips_enabled = 1
 
+    Plug 'majutsushi/tagbar' | let tagbar_enabled = 1
+
     " Buffer and file navigation
     "Plug 'jlanzarotta/bufexplorer' | let bufexplorer_enabled = 1
     " NOTE: VimFiler depends on Unite
@@ -19,6 +28,8 @@ call plug#begin('~/.vim/plugged')
     " Custom vimrc for a directory
     " NOTE: local_vimrc depends on lh-vim-lib
     "Plug 'LucHermitte/local_vimrc' | Plug 'LucHermitte/lh-vim-lib' | let local_vimrc_enabled = 1
+    "Plug 'marcweber/vim-addon-local-vimrc' | let vim_addon_local_vimrc_enabled = 1
+    "Plug 'embear/vim-localvimrc' | let vim_localvimrc_enabled = 1
 
     " Multi-language syntax checking
     Plug 'vim-syntastic/syntastic' | let syntastic_enabled = 1
@@ -59,6 +70,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'jacoborus/tender'
     Plug 'zanglg/nova.vim'
+    Plug 'joshdick/onedark.vim'
 call plug#end()
 
 if exists("unite_enabled")
@@ -108,6 +120,10 @@ endif
 
 if exists("local_vimrc_enabled")
     let g:local_vimrc = ".vimrc_local.vim"
+endif
+
+if exists("let vim_localvimrc_enabled")
+    let g:localvimrc_name = [".vimrc"]
 endif
 
 if exists("syntastic_enabled")
