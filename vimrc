@@ -9,7 +9,7 @@ if has("gui_running")
 endif
 
 if has("termguicolors")
-"    set termguicolors
+    set termguicolors
 endif
 
 set history=1000    " Size of history
@@ -131,4 +131,4 @@ colorscheme molokai
 "colorscheme koehler
 "colorscheme PaperColor
 "colorscheme tender
-
+"colorscheme apprentice

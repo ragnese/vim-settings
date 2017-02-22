@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
     " Snippets
     Plug 'sirver/UltiSnips' | let ultisnips_enabled = 1
 
-    Plug 'majutsushi/tagbar' | let tagbar_enabled = 1
+    "Plug 'majutsushi/tagbar' | let tagbar_enabled = 1
 
     " Buffer and file navigation
     "Plug 'jlanzarotta/bufexplorer' | let bufexplorer_enabled = 1
@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
     " NOTE: local_vimrc depends on lh-vim-lib
     "Plug 'LucHermitte/local_vimrc' | Plug 'LucHermitte/lh-vim-lib' | let local_vimrc_enabled = 1
     "Plug 'marcweber/vim-addon-local-vimrc' | let vim_addon_local_vimrc_enabled = 1
-    "Plug 'embear/vim-localvimrc' | let vim_localvimrc_enabled = 1
+    Plug 'embear/vim-localvimrc' | let vim_localvimrc_enabled = 1
 
     " Multi-language syntax checking
     Plug 'vim-syntastic/syntastic' | let syntastic_enabled = 1
@@ -50,13 +50,20 @@ call plug#begin('~/.vim/plugged')
     "Plug 'neomake/neomake', { 'for': 'python' } | let neomake_enabled = 1
     
     " LaTeX
-    Plug 'lervag/vimtex' | let vimtex_enabled = 1
+    "Plug 'lervag/vimtex' | let vimtex_enabled = 1
 
     " Go
     Plug 'fatih/vim-go' | let vim_go_enabled = 1
 
     " C/C++
+    "Plug 'bbchung/clighter' | let clighter_enabled = 1
+    Plug 'octol/vim-cpp-enhanced-highlight' | let vim_cpp_enhanced_highlight_enabled = 1
     Plug 'Rip-Rip/clang_complete' | let clang_complete_enabled = 1
+    "Plug 'jeaye/color_coded', { 'do':  'mkdir build && cd build;
+    "                                    \ cmake -DDOWNLOAD_CLANG=0 ..;
+    "                                    \ make && make install;
+    "                                    \ make clean; #only if clang downloaded&& make clean_clang;' }
+    "                                    \ | let color_coded_enabled = 1
 
     " Swift
     Plug 'keith/swift.vim' | let swift_enabled = 1
@@ -65,12 +72,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'rust-lang/rust.vim' | let rust_enabled = 1
     Plug 'racer-rust/vim-racer' | let racer_enabled = 1
 
+    " TOML
+    Plug 'cespare/vim-toml' | let vim_toml_enabled = 1
+
     " Color themes
     Plug 'tomasr/molokai'
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'jacoborus/tender'
     Plug 'zanglg/nova.vim'
     Plug 'joshdick/onedark.vim'
+    Plug 'romainl/apprentice'
 call plug#end()
 
 if exists("unite_enabled")
@@ -122,7 +133,7 @@ if exists("local_vimrc_enabled")
     let g:local_vimrc = ".vimrc_local.vim"
 endif
 
-if exists("let vim_localvimrc_enabled")
+if exists("vim_localvimrc_enabled")
     let g:localvimrc_name = [".vimrc"]
 endif
 
@@ -165,6 +176,14 @@ if exists("let vim_go_enabled")
     let g:go_fmt_autosave = 0
 endif
 
+if exists("vim_cpp_enhanced_highlight_enabled")
+    " I honestly can't see what the following two options even do
+    "let g:cpp_member_variable_highlight = 1
+    "let g:cpp_class_scope_highlight = 1
+    " Default mode does better job. Only enable this if default is too slow
+    "let g:cpp_experimental_template_highlight = 1
+endif
+
 if exists("clang_complete_enabled")
     let g:clang_complete_auto = 0 " Auto pop up
     let g:clang_close_preview = 1 " Close completion window after completion
@@ -172,6 +191,12 @@ if exists("clang_complete_enabled")
     let g:clang_snippets = 1
     let g:clang_snippets_engine = 'clang_complete'
     let g:clang_complete_optional_args_in_snippets = 1
+endif
+
+if exists("clighter_enabled")
+    let g:clighter_libclang_file = '/usr/lib/libclang.so'
+    let g:clighter_realtime = 1
+    let g:clighter_cursor_hl_default = 1
 endif
 
 if exists("racer_enabled")
