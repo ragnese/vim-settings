@@ -12,6 +12,8 @@ if has("termguicolors")
     set termguicolors
 endif
 
+set path+=**        " Allow :find to recurse downward through directories.
+
 set history=1000    " Size of history
 
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
@@ -100,9 +102,6 @@ set nowrap          " Don't wrap lines, even softly.
 set whichwrap+=<,>,h,l,[,] " h,l, and arrow keys do not wrap at the start/end
                     " of lines unless you tell it to.
 
-" Always switch to the current file directory
-"autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-
 " Change the leader key 
 let g:mapleader = " "
 let g:maplocalleader = " "
@@ -128,7 +127,5 @@ source ~/.vim/plugins.vim
 " some colorschemes as 'plugins'
 
 colorscheme molokai
-"colorscheme koehler
 "colorscheme PaperColor
-"colorscheme tender
-"colorscheme apprentice
+"colorscheme codedark
