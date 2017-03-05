@@ -78,10 +78,7 @@ call plug#begin('~/.vim/plugged')
     " Color themes
     Plug 'tomasr/molokai'
     Plug 'NLKNguyen/papercolor-theme'
-    Plug 'jacoborus/tender'
-    Plug 'zanglg/nova.vim'
-    Plug 'joshdick/onedark.vim'
-    Plug 'romainl/apprentice'
+    Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 if exists("unite_enabled")
