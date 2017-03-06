@@ -79,6 +79,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tomasr/molokai'
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'tomasiser/vim-code-dark'
+    Plug 'tyrannicaltoucan/vim-quantum'
 call plug#end()
 
 if exists("unite_enabled")

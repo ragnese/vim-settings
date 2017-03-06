@@ -127,5 +127,6 @@ source ~/.vim/plugins.vim
 " some colorschemes as 'plugins'
 
 colorscheme molokai
+"colorscheme quantum
 "colorscheme PaperColor
 "colorscheme codedark
