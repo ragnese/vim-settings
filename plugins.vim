@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
     "Plug 'shougo/unite.vim' | Plug 'shougo/vimproc.vim', { 'do' : 'make' } | let unite_enabled = 1
 
     " Denite is the replacement for Unite. Not feature complete yet
-    Plug 'shougo/denite.nvim' |	let denite_enabled = 1
+    "Plug 'shougo/denite.nvim' |	let denite_enabled = 1
 
     " Snippets
     Plug 'sirver/UltiSnips' | let ultisnips_enabled = 1
@@ -19,11 +19,11 @@ call plug#begin('~/.vim/plugged')
     "Plug 'majutsushi/tagbar' | let tagbar_enabled = 1
 
     " Buffer and file navigation
-    "Plug 'jlanzarotta/bufexplorer' | let bufexplorer_enabled = 1
+    Plug 'jlanzarotta/bufexplorer' | let bufexplorer_enabled = 1
     " NOTE: VimFiler depends on Unite
     "Plug 'shougo/vimfiler.vim' | let vimfiler_enabled = 1
     Plug 'tpope/vim-vinegar' | let vim_vinegar_enabled = 1
-    "Plug 'ctrlpvim/ctrlp.vim' | let ctrlp_enabled = 1
+    Plug 'ctrlpvim/ctrlp.vim' | let ctrlp_enabled = 1
 
     " Custom vimrc for a directory
     " NOTE: local_vimrc depends on lh-vim-lib
@@ -124,6 +124,7 @@ endif
 if exists("ctrlp_enabled")
     let g:ctrlp_map = '<c-p>'
     let g:ctrlp_cmd = 'CtrlP'
+    let g:ctrp_how_hidden = 1
 endif
 
 if exists("local_vimrc_enabled")
