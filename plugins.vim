@@ -16,6 +16,9 @@ call plug#begin('~/.vim/plugged')
     " Snippets
     Plug 'sirver/UltiSnips' | let ultisnips_enabled = 1
 
+    " Git integration
+    Plug 'tpope/vim-fugitive' | let vim_fugitive_enabled = 1
+
     "Plug 'majutsushi/tagbar' | let tagbar_enabled = 1
 
     " Buffer and file navigation
@@ -112,6 +115,10 @@ if exists("ultisnips_enabled")
     let g:UltiSnipsSnippetsDir=$HOME."/.vim/UltiSnips"
 endif
 
+if exists("vim_fugitive_enabled")
+    "set statusline+=\ %{fugitive#statusline()}
+endif
+
 if exists("vimfiler_enabled")
     let g:loaded_netrwPlugin = 1 " disable netrw
     let g:vimfiler_as_default_explorer = 1
@@ -127,7 +134,7 @@ endif
 if exists("ctrlp_enabled")
     let g:ctrlp_map = '<c-p>'
     let g:ctrlp_cmd = 'CtrlP'
-    let g:ctrp_how_hidden = 1
+    let g:ctrp_show_hidden = 1
 endif
 
 if exists("local_vimrc_enabled")
