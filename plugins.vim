@@ -78,6 +78,9 @@ call plug#begin('~/.vim/plugged')
     " TOML
     Plug 'cespare/vim-toml' | let vim_toml_enabled = 1
 
+    " Avro
+    Plug 'AoLab/vim-avro' | let vim_avro_enabled = 1
+
     " Color themes
     Plug 'tomasr/molokai'
     Plug 'NLKNguyen/papercolor-theme'
