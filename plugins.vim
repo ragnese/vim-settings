@@ -135,6 +135,12 @@ if exists("vimfiler_enabled")
 endif
 
 if exists("ctrlp_enabled")
+    " The following lines check if ripgrep is in PATH and then tells CtrlP
+    " to use it.
+    silent exec '!which rg > /dev/null'
+    if !v:shell_error
+        let g:ctrlp_user_command = 'rg %s --files'
+    endif
     let g:ctrlp_map = '<c-p>'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrp_show_hidden = 1
@@ -149,9 +155,9 @@ if exists("vim_localvimrc_enabled")
 endif
 
 if exists("syntastic_enabled")
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+    "set statusline+=%#warningmsg#
+    "set statusline+=%{SyntasticStatuslineFlag()}
+    "set statusline+=%*
     let g:syntastic_check_on_wq = 0 " don't check on file close
     let g:syntastic_always_populate_loc_list = 1 " fill location list with errors
     let g:syntastic_auto_loc_list = 0 " open loc list when errors, close when empty
