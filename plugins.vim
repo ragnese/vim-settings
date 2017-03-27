@@ -59,7 +59,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go' | let vim_go_enabled = 1
 
     " C/C++
-    "Plug 'bbchung/clighter' | let clighter_enabled = 1
     Plug 'octol/vim-cpp-enhanced-highlight' | let vim_cpp_enhanced_highlight_enabled = 1
     Plug 'Rip-Rip/clang_complete' | let clang_complete_enabled = 1
     "Plug 'jeaye/color_coded', { 'do':  'mkdir build && cd build;
@@ -181,6 +180,10 @@ if exists("YouCompleteMe_enabled")
     nnoremap <Leader>] :YcmCompleter GoTo<CR>
 endif
 
+if exists("jedi_vim_enable")
+    let g:jedi#popup_on_dot = 0
+endif
+
 if exists("let vim_go_enabled")
     let g:go_highlight_functions = 1
     let g:go_highlight_methods = 1
@@ -195,8 +198,8 @@ endif
 
 if exists("vim_cpp_enhanced_highlight_enabled")
     " I honestly can't see what the following two options even do
-    "let g:cpp_member_variable_highlight = 1
-    "let g:cpp_class_scope_highlight = 1
+    let g:cpp_member_variable_highlight = 1
+    let g:cpp_class_scope_highlight = 1
     " Default mode does better job. Only enable this if default is too slow
     "let g:cpp_experimental_template_highlight = 1
 endif
