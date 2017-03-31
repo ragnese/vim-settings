@@ -97,7 +97,7 @@ set autoread	    " Autoread when file is changed from another source.
 
 set hidden          " Hide a buffer instead of closing it when switching to
                     " a new buffer.
-set nowrap          " Don't wrap lines, even softly.
+"set nowrap          " Don't wrap lines, even softly.
                     
 set whichwrap+=<,>,h,l,[,] " h,l, and arrow keys do not wrap at the start/end
                     " of lines unless you tell it to.

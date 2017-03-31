@@ -22,10 +22,11 @@ call plug#begin('~/.vim/plugged')
     "Plug 'majutsushi/tagbar' | let tagbar_enabled = 1
 
     " Buffer and file navigation
+    Plug 'scrooloose/nerdtree' | let nerdtree_enabled = 1
     Plug 'jlanzarotta/bufexplorer' | let bufexplorer_enabled = 1
     " NOTE: VimFiler depends on Unite
     "Plug 'shougo/vimfiler.vim' | let vimfiler_enabled = 1
-    Plug 'tpope/vim-vinegar' | let vim_vinegar_enabled = 1
+    "Plug 'tpope/vim-vinegar' | let vim_vinegar_enabled = 1
     Plug 'ctrlpvim/ctrlp.vim' | let ctrlp_enabled = 1
 
     " Custom vimrc for a directory
@@ -119,6 +120,12 @@ endif
 
 if exists("vim_fugitive_enabled")
     "set statusline+=\ %{fugitive#statusline()}
+endif
+
+if exists("nerdtree_enabled")
+    let g:NERDTreeShowHidden = 1
+    noremap <F5> :NERDTreeToggle<CR>
+    nnoremap - :NERDTreeFind<CR>
 endif
 
 if exists("vimfiler_enabled")
