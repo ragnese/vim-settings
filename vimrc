@@ -109,10 +109,6 @@ let g:maplocalleader = " "
 " Turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
-" Allow per-project vimrc, but disable scary things like :shell
-"set exrc
-"set secure
-
 " Delete buffer while preserving window layout (splits)
 command Bd bp|bd #
  
