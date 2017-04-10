@@ -125,4 +125,3 @@ source ~/.vim/plugins.vim
 colorscheme molokai
 "colorscheme quantum
 "colorscheme PaperColor
-"colorscheme codedark
